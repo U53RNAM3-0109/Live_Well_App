@@ -37,6 +37,7 @@ fun ContactUsScreen(modifier: Modifier = Modifier) {
             Spacer(modifier.height(48.dp))
         }
         item {
+            //First some text
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top
@@ -60,12 +61,14 @@ If you would like to meet us in person, send a message with your contact details
             }
         }
         item {
+            //Then the email buttons
             Column() {
                 Spacer(modifier.height(28.dp))
                 Text("Contact us:", fontWeight = FontWeight.SemiBold)
                 Spacer(modifier.height(16.dp))
                 Text("Community Developer", fontWeight = FontWeight.SemiBold)
 
+                //Needs context
                 val context = LocalContext.current
                 Button(onClick = {
                     context.sendMail("connect@livewellinbraunton.co.uk", "")
@@ -99,6 +102,7 @@ If you would like to meet us in person, send a message with your contact details
 
 // Contact Us helper functions
 fun Context.sendMail(to: String, subject: String) {
+    //Prompts user to email with intent
     try {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "vnd.android.cursor.item/email" // or "message/rfc822"

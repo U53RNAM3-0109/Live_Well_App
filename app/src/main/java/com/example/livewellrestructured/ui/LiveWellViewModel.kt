@@ -23,6 +23,7 @@ class LiveWellViewModel : ViewModel() {
         getLiveWellData()
     }
     fun getLiveWellData() {
+        //Gets data from github pages address
         viewModelScope.launch {
             liveWellUiState = try {
                 val listResult = LiveWellApi.retrofitService.getLiveWellData()

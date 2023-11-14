@@ -84,13 +84,11 @@ fun LiveWellApp(
             startDestination = LiveWellScreen.Home.name,
             modifier = Modifier.padding(innerPadding)
         ) {
+            //Only two screens
             composable(route = LiveWellScreen.Home.name) {
                 HomeScreen(
                     liveWellUiState,
                     uriHandler,
-                    onNavigationToYouth = {
-                        navController.navigate(LiveWellScreen.YouthSupport.name)
-                    },
                     onNavigationToContactUs = {
                         navController.navigate(LiveWellScreen.ContactUs.name)
                     },
@@ -98,9 +96,6 @@ fun LiveWellApp(
                         uriHandler.openUri("https://www.livewellinbraunton.co.uk")
                     })
             }
-            /*composable(route = LiveWellScreen.YouthSupport.name) {
-                YouthSupportScreen(liveWellUiState, uriHandler)
-            }*/
             composable(route = LiveWellScreen.ContactUs.name) {
                 ContactUsScreen()
             }

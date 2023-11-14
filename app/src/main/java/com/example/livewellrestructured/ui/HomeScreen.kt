@@ -26,7 +26,6 @@ import com.example.livewellrestructured.network.LiveWellAppData
 fun HomeScreen(
     liveWellUiState: LiveWellUiState,
     uriHandler: UriHandler,
-    onNavigationToYouth: () -> Unit,
     onNavigationToWebsite: () -> Unit,
     onNavigationToContactUs: () -> Unit,
     modifier: Modifier = Modifier
@@ -38,16 +37,19 @@ fun HomeScreen(
         item {
             Text("Helping support the Community.", fontFamily = openSans)
         }
+        //Contact us page button
         item {
             Button(onClick = onNavigationToContactUs) {
                 Text("Contact Us", fontFamily = openSans)
             }
         }
+        //Navigate to website button (opens in new tab)
         item {
             Button(onClick = onNavigationToWebsite) {
                 Text("Visit our Website for more information", fontFamily = openSans)
             }
         }
+        //Only loads the next section when the data has been retrieved
         when (liveWellUiState) {
             is LiveWellUiState.Loading -> LoadingScreen(lazyListScope = this, modifier = modifier.fillMaxSize())
             is LiveWellUiState.Success -> SuccessScreen(
